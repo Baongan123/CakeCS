@@ -1,0 +1,83 @@
+﻿
+@model List<Product>
+@{
+    ViewData["Title"] = "Home Page";
+    List<Category> categories = ViewBag.Categories;
+}
+
+
+
+@if (Model != null)
+{
+    @foreach (Category category in categories)
+    {
+        <div style="background-color:dimgray;padding:2px 4px">
+            <h3>@category.CategoryName</h3>
+        </div>
+        <div class="row container">
+            @if (Model != null)
+            {
+                @foreach (Product pd in Model)
+                {
+                    if (pd.CategoryId == category.CategoryId)
+                    {
+                        <div class="col-lg-4 col-md-6 mb-4 mt-3">
+                            <div class="card h-100">
+                                <a asp-controller="Home" asp-action="Details" asp-route-id="@pd.Id"><img class="card-img-top" src="/Images/Product/@pd.Img" alt="" height="200"></a>
+                                <div class="card-body text-center">
+                                    <h4 class="card-title">
+                                        <a asp-controller="Home" asp-action="Details" asp-route-id="@pd.Id">@pd.Name</a>
+                                    </h4>
+                                    <h5>@pd.Price VND</h5>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                }
+            }
+        </div>
+
+    }
+}
+
+
+@*<div class="row pt-5">
+        @if (Model != null)
+        {
+            int index = 1;
+            foreach (var pd in Model)
+            {
+                var avatarPath = $"/Images/Product/{(pd.Img ?? "nonavatar.png")}";
+                <div class="row" style="width:100%">
+                    @if (index % 2 == 0)
+                    {
+                        <div class="col-sm-6">
+                            <img src="~/Images/Product/@pd.Img" style="height:300px;width:100%" />
+                        </div>
+                        <div class="col-sm-6 text-center my-auto">
+                            <h3>Name: @pd.Name</h3>
+                            <h4>@pd.Title</h4>
+                            <a asp-controller="Home" asp-action="Details" asp-route-id="@pd.Id" class="btn btn-success">See more</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="col-sm-6 text-center my-auto">
+                            <h3>Name: @pd.Name</h3>
+                            <h4>@pd.Title</h4>
+                            <a asp-controller="Home" asp-action="Details" asp-route-id="@pd.Id" class="btn btn-success">See more</a>
+                        </div>
+                        <div class="col-sm-6">
+                            <img src="~/Images/Product/@pd.Img" style="height:300px;width:100%" />
+                        </div>
+                    }
+                </div>
+                index++;
+                if (index > 6)
+                {
+                    return;
+                }
+            }
+        }
+    </div>*@

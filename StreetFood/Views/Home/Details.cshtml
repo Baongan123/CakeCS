@@ -1,0 +1,52 @@
+﻿@model Product
+@{
+   
+    ViewBag.Title = "Details";
+    //var employee = ViewBag.Employee as Employee;
+    var avatarPath = $"/Images/Product/{(Model.Img ?? "nonavatar.png")}";
+}
+
+
+
+    <div class="container">
+        <div class="row" style="margin-bottom:6px">
+            <div class="col-sm-6" style=" width:400px;height:350px;">
+                <img src="@avatarPath" style="width:105%;height:100%; margin-left:-12px" />
+            </div>
+            <div class="col-sm-6 card-body" style="border:0.5px solid">
+                <h3>@Model.Name</h3>
+                <h4>@Model.Price</h4>
+                <h5>@Model.Title</h5>
+                <h5>@Model.Description</h5>
+                <h5>@Model.Address</h5>
+                <a asp-controller="Home" asp-action="Index" class="btn btn-warning">Back</a>
+            </div>
+        </div>
+    </div>
+
+
+@*
+    <div class="row justify-content-center">
+    <div class="col-sm-6">
+        <div class="card my-2">
+            <div class="card-header">
+                <h3>@Model.Name</h3>
+            </div>
+            <div class="card-body text-center">
+                <img src="@avatarPath" class="card-img-top" asp-append-version="true" />
+                <h3>Price: @Model.Price</h3>
+                <h3>Introduce: @Model.Description</h3>
+                <h3>Addree: @Model.Address</h3>
+            </div>
+            <div class="card-footer text-center">
+                <a href="@Url.Action("Details","Home", new { id = Model.Employee.Id })" class="btn btn-info">View</a>
+<a asp-controller="Home" asp-action="Index" class="btn btn-warning">Back</a>
+<a asp-controller="Home" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Update</a>
+<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+    Delete
+</button>
+            </div>
+        </div>
+    </div>
+</div>
+*@

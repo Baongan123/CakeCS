@@ -1,0 +1,26 @@
+﻿
+@model List<Product>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div class="row">
+        @if (Model != null)
+        {
+            foreach (var pd in Model)
+            {
+                var avatarPath = $"/Images/Product/{(pd.Img ?? "nonavatar.png")}";
+                <div class="col-lg-4 col-md-6 mb-4 mt-3">
+                    <div class="card h-100">
+                        <a asp-controller="Home" asp-action="Details" asp-route-id="@pd.Id"><img class="card-img-top" src="@avatarPath" alt="" height="200"></a>
+                        <div class="card-body text-center">
+                            <h4 class="card-title">
+                                <a asp-controller="Home" asp-action="Details" asp-route-id="@pd.Id">@pd.Name</a>
+                            </h4>
+                            <h5>@pd.Price VND</h5>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>

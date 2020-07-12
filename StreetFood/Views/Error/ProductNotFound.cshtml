@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Product Not Found";
+}
+
+<div class="alert alert-danger mt-2">
+    <h1>Error 404</h1>
+    <hr />
+    <h5>Product with Id = @ViewBag.Id.ToString() Can not be found</h5>
+</div>
+<a asp-controller="Home" asp-action="Index" class="btn btn-outline-warning" style="width:auto">
+    Click here to see all Product
+</a>
