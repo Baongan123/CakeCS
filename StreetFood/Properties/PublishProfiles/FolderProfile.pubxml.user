@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\User\Desktop\public\CaseCakeWeb</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="streetfood">
+      <Value>workstation id=baongann.mssql.somee.com%3bpacket size=4096%3buser id=baongann_SQLLogin_1%3bpwd=r3hionsyqu%3bdata source=baongann.mssql.somee.com%3bpersist security info=False%3binitial catalog=baongann</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>
