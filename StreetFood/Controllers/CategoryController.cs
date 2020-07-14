@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace StreetFood.Controllers
 {
+    /// <summary>
+    /// Ngan comment
+    /// </summary>
     public class CategoryController:Controller
     {
         private readonly IWebHostEnvironment webHostEnvironment;
