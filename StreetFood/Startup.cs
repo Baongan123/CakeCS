@@ -56,14 +56,13 @@ namespace StreetFood
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-            //duc tang
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+            //ngân khùng
         }
     }
 }
