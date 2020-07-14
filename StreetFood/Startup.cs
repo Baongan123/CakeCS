@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,8 +19,7 @@ namespace StreetFood
         public Startup(IConfiguration config)
         {
             this.config = config;
-
-
+            //Bảo ngân
         }
 
         public IConfiguration config { get; }
@@ -48,7 +47,7 @@ namespace StreetFood
             }
             else
             {
-               
+               //ngan
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
