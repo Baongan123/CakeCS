@@ -56,7 +56,7 @@ namespace StreetFood
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-            //phapdien
+            //ngande
 
             app.UseEndpoints(endpoints =>
             {
