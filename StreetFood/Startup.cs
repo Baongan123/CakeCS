@@ -19,10 +19,7 @@ namespace StreetFood
         public Startup(IConfiguration config)
         {
             this.config = config;
-
-
-
-
+            //bao ngan
         }
 
         public IConfiguration config { get; }
