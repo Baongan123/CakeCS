@@ -19,6 +19,7 @@ namespace StreetFood
         public Startup(IConfiguration config)
         {
             this.config = config;
+            //duckhung
         }
 
         public IConfiguration config { get; }
