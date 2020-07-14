@@ -63,8 +63,6 @@ namespace StreetFood
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-
-            //ngan
         }
     }
 }
