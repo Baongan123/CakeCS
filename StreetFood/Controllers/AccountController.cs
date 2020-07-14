@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace StreetFood.Controllers
 {
+    /// <summary>
+    /// Duc comment
+    /// </summary>
     public class AccountController:Controller
     {
         private readonly UserManager<ApplicationUser> userManager;
