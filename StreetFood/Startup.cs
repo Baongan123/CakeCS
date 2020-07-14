@@ -57,15 +57,12 @@ namespace StreetFood
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-            //ngande
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-            //ngan
         }
     }
 }
