@@ -64,7 +64,7 @@ namespace StreetFood
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            //ngan
+            //ngan chó cái
         }
     }
 }
