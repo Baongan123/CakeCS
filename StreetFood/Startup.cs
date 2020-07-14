@@ -20,6 +20,7 @@ namespace StreetFood
         {
             this.config = config;
             //duckhung
+            //ngan cung khung
         }
 
         public IConfiguration config { get; }
