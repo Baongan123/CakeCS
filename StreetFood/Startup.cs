@@ -19,8 +19,6 @@ namespace StreetFood
         public Startup(IConfiguration config)
         {
             this.config = config;
-            //duckhung
-            //ngan cung khung
         }
 
         public IConfiguration config { get; }
@@ -64,6 +62,8 @@ namespace StreetFood
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            //rảnh quá nên thêm chơi
         }
     }
 }
