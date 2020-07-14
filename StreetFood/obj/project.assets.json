@@ -5156,11 +5156,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\CScake\\StreetFood\\StreetFood.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\CScakeMl02\\StreetFood\\StreetFood.csproj",
       "projectName": "StreetFood",
-      "projectPath": "C:\\Users\\User\\Desktop\\CScake\\StreetFood\\StreetFood.csproj",
+      "projectPath": "C:\\Users\\User\\Desktop\\CScakeMl02\\StreetFood\\StreetFood.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\CScake\\StreetFood\\obj\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\CScakeMl02\\StreetFood\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",

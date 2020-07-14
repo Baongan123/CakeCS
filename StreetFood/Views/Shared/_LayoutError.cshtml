@@ -1,0 +1,105 @@
+﻿@inject SignInManager<ApplicationUser> signInManager
+@inject UserManager<ApplicationUser> userManager
+@{
+    List<Category> categories = ViewBag.Categories;
+    var user = await userManager.GetUserAsync(User);
+    IList<string> roles = new List<string>();
+    if (user != null)
+    {
+        var userin = Task.Run(async () => await userManager.FindByIdAsync(user.Id)).Result;
+        roles = Task.Run(async () => await userManager.GetRolesAsync(userin)).Result;
+    }
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="container navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">MoMoChan</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-link" data-toggle="dropdown" style="width:100px;color:black">
+                                    Categories
+                                </button>
+                                <div class="dropdown-menu">
+                                    @if (categories != null)
+                                    {
+                                        foreach (var c in categories)
+                                        {
+                                            <a class="dropdown-item" style="color:black" asp-controller="Home" asp-action="Products" asp-route-id="@c.CategoryId">@c.CategoryName</a>
+                                        }
+                                    }
+
+                                </div>
+                            </div>
+                        </li>
+                        @if (signInManager.IsSignedIn(User) && roles.Count > 0)
+                        {
+                            <li class="nav-item">
+                                <a asp-controller="Productmanagement" asp-action="Index" class="nav-link" style="color:black">Management</a>
+                            </li>
+                        }
+
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        @if (signInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item dropdown no-arrow">
+
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="font-size:25px;">@user.FullName</span>
+                                </a>
+                                <!-- Dropdown - User Information -->
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" asp-controller="Account" asp-action="Logout">
+                                        <i class="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Logout
+                                    </a>
+                                </div>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item  mr-3"><a asp-controller="Account" asp-action="Register">Register</a></li>
+                            <li class="nav-item"><a asp-controller="Account" asp-action="Login">Login</a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <div style="margin-top:100px">
+            @RenderBody()
+        </div>
+        <footer class="border-top card-footer text-muted" style="text-align:center">
+            <span> &copy; C010220 @DateTime.Now.Year </span>
+        </footer>
+    </div>
+
+    @RenderSection("Scripts", false)
+</body>
+</html>
+
